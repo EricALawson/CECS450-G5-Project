@@ -16,6 +16,8 @@ fig = go.Figure(data=
                  constraintrange = [0.8, 1.2],
                 ticktext = ['TreeGeneral', 'GraphGeneral', 'TreeExpert', 'GraphExpert'],
                 label = 'Subset', values = aggData['Category']),
+            dict(range = [0.08, 0.5],
+                 label = 'Avg Dilation (Overall Cognitive Overload)', values = aggData['Avg_Dilation']),
             dict(range = [0,1],
                 label = 'Task Success', values = aggData['Task_Success']),
             dict(range = [5, 75],
