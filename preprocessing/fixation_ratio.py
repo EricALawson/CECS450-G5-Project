@@ -14,7 +14,6 @@ def fix_ratio(row):
         fixColNames = ["number", "time", "duration", "x", "y"]
         fix_data = pd.read_csv(fix_path, names=fixColNames, delimiter='\t', header=None)
         ratio = fix_data['duration'].sum() / fix_data['time'].max()
-        #print(ratio)
         return ratio
 
 def add_fix_ratio(aggData):
