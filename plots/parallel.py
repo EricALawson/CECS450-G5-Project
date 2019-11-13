@@ -1,4 +1,5 @@
 import plotly.graph_objects as go
+import plotly
 import pandas as pd
 import preprocessing.additional_participant_data as meta_data
 import preprocessing.fixation_ratio as fix_ratio
@@ -90,4 +91,5 @@ fig.update_layout(
 #    paper_bgcolor = 'rgb(50, 50, 50)'
 )
 
+plotly.offline.plot(fig, filename='Visualization.html')
 fig.show()
