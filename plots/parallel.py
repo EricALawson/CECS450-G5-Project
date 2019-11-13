@@ -10,18 +10,6 @@ quartiles = quartile_data.calc_quartiles()
 baseData = meta_data.get_meta_data()
 aggData = fix_ratio.add_fix_ratio(baseData)
 
-fig = go.Figure(data=
-    go.Parcoords(
-        line = dict(color = aggData['Category'],
-                   colorscale = [[0,'purple'],[0.5,'lightseagreen'],[1,'gold']]),
-        dimensions = list([
-            dict(range = [1,4],
-                 tickvals = [1, 2, 3, 4],
-                 constraintrange = [0.8, 1.2],
-                ticktext = ['TreeGeneral', 'GraphGeneral', 'TreeExpert', 'GraphExpert'],
-                label = 'Subset', values = aggData['Category']),
-            dict(range = [0.08, 0.5],
-                 label = 'Avg Dilation (Overall Cognitive Overload)', values = aggData['Avg_Dilation']),
 def lines_by_category(df):
     return dict(
         color = df['Category'],
@@ -53,7 +41,9 @@ def dimensions_for(df):
                 label = 'Total Time', values = df['Time_On_Task']),
             dict(range = [0, 1],
                  label = "Percent Time Fixated",
-                 values = df['Fixation_Ratio'])
+                 values = df['Fixation_Ratio']),
+            dict(range=[0.08, 0.5],
+                 label='Avg Dilation (Overall Cognitive Overload)', values=aggData['Avg_Dilation'])
     ])
 
 participant_trace = go.Parcoords(
