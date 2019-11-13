@@ -45,7 +45,7 @@ def dimensions_for(df):
                  values = df['Fixation_Ratio']),
             dict(range=[0.08, 0.5],
                  label='Avg Dilation (Overall Cognitive Overload)',
-                 values=aggData['Avg_Dilation'])
+                 values=aggData['Avg_Dilation']),
             dict(range=[0, 20000],
                  label='Scanpath',
                  values=aggData['Scanpath_length'])
