@@ -2,9 +2,9 @@ import preprocessing.additional_participant_data as apd
 import preprocessing.fixation_ratio as fr
 import pandas as pd
 
-def calc_quartiles():
-    df = apd.get_meta_data()
-    df = fr.add_fix_ratio(df)
+def calc_quartiles(df):
+    #df = apd.get_meta_data()
+    #df = fr.add_fix_ratio(df)
     df = df.drop('ID', axis=1)
 
     first_quartile = df.groupby('Category').quantile(0.25).reset_index()

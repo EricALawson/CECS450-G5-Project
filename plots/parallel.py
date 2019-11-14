@@ -6,11 +6,13 @@ import preprocessing.fixation_ratio as fix_ratio
 import preprocessing.means as means
 import preprocessing.quartiles as quartile_data
 import preprocessing.scanpath as scan_data
+import preprocessing.convexhull as hull_data
 
-means = means.calc_means()
-quartiles = quartile_data.calc_quartiles()
+
 baseData = meta_data.get_meta_data()
-aggData = scan_data.add_scanpath_length(fix_ratio.add_fix_ratio(baseData))
+aggData = hull_data.add_convex_hull(scan_data.add_scanpath_length(fix_ratio.add_fix_ratio(baseData)))
+means = means.calc_means(aggData)
+quartiles = quartile_data.calc_quartiles(aggData)
 
 def lines_by_category(df):
     return dict(
@@ -46,10 +48,13 @@ def dimensions_for(df):
                  values = df['Fixation_Ratio']),
             dict(range=[0.08, 0.5],
                  label='Avg Dilation (Overall Cognitive Overload)',
-                 values=aggData['Avg_Dilation']),
+                 values=df['Avg_Dilation']),
             dict(range=[0, 20000],
                  label='Scanpath',
-                 values=aggData['Scanpath_length'])
+                 values=df['Scanpath_length']),
+            dict(range = [0, 3_000_000],
+                 label='Convex Hull Area',
+                 values=df['Convex Hull Area'])
 
     ])
 
@@ -92,4 +97,4 @@ fig.update_layout(
 )
 
 plotly.offline.plot(fig, filename='Visualization.html')
-fig.show()
+#fig.show()
