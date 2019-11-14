@@ -52,7 +52,7 @@ def dimensions_for(df):
             dict(range=[0, 20000],
                  label='Scanpath',
                  values=df['Scanpath_length']),
-            dict(range = [0, 3_000_000],
+            dict(range = [0, 1_280_000],
                  label='Convex Hull Area',
                  values=df['Convex Hull Area'])
 
