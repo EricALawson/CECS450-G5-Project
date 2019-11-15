@@ -20,5 +20,8 @@ def get_meta_data():
     return df
 
 if __name__ == "__main__":
-    print(get_meta_data())
+    df = get_meta_data()
+    print(df)
+    correlation = df['Task_Success'].corr(df['Time_On_Task'])
+    print(correlation)
 
