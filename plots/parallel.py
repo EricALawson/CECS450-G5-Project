@@ -50,8 +50,8 @@ def dimensions_for(df):
                  label='Avg Dilation (mm)',
                  values=df['Avg_Dilation']),
             dict(range=[0, 20000],
-                 label='Scanpath',
-                 values=df['Scanpath_length (inches)']),
+                 label='Scanpath (inches)',
+                 values=df['Scanpath_length']),
             dict(range = [0, 1_280_000],
                  label='Convex Hull Area (pixels)',
                  values=df['Convex Hull Area'])
