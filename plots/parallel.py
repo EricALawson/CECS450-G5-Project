@@ -42,18 +42,18 @@ def dimensions_for(df):
             dict(range = [0,1],
                 label = 'Task Success', values = df['Task_Success']),
             dict(range = [5, 75],
-                label = 'Total Time', values = df['Time_On_Task']),
+                label = 'Total Time (minutes)', values = df['Time_On_Task']),
             dict(range = [0, 1],
                  label = "Percent Time Fixated",
                  values = df['Fixation_Ratio']),
             dict(range=[0.08, 0.5],
-                 label='Avg Dilation (Overall Cognitive Overload)',
+                 label='Avg Dilation (mm)',
                  values=df['Avg_Dilation']),
             dict(range=[0, 20000],
                  label='Scanpath',
-                 values=df['Scanpath_length']),
+                 values=df['Scanpath_length (inches)']),
             dict(range = [0, 1_280_000],
-                 label='Convex Hull Area',
+                 label='Convex Hull Area (pixels)',
                  values=df['Convex Hull Area'])
 
     ])
